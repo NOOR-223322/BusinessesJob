@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DealerHub - Business Dealing</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="logo">DEALER<span>HUB</span></div>
+  <div class="nav-btns">
+    <button onclick="openModal('joinModal')">+ Dealer Join</button>
+    <button onclick="openModal('ownerModal')" class="owner-btn">Owner Login</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <h1>DEAL KARO<br><span>BUSINESS</span><br>BARAO.</h1>
+    <p>Upwork এর মত প্ল্যাটফর্ম, কিন্তু ব্যাবসার ডিলারদের জন্য। ডিলাররা Join করবে, ডিলে Bid করবে, তুমি Owner হিসেবে সব কন্ট্রোল করবে।</p>
+    <div class="stats">
+      <div class="stat"><h2 id="totalCount">0</h2><span>Total Dealers</span></div>
+      <div class="stat"><h2>₹18L+</h2><span>Deals Value</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="deals-header"><h3>ACTIVE DEALS</h3><span class="live-dot">● LIVE</span></div>
+    <div id="dealList"></div>
+  </div>
+</section>
+
+<!-- Join Modal -->
+<div id="joinModal" class="modal hidden">
+  <div class="modal-box">
+    <h2>Dealer Join</h2>
+    <input id="jName" placeholder="পুরো নাম">
+    <input id="jBiz" placeholder="ব্যাবসা: Cement, Cloth">
+    <input id="jPhone" placeholder="WhatsApp Number">
+    <button class="primary-btn" onclick="joinDealer()">JOIN NOW</button>
+    <button class="close-btn" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<!-- Owner Modal -->
+<div id="ownerModal" class="modal hidden">
+  <div class="modal-box owner-box">
+    <h2>OWNER ONLY</h2><p>Password: noor@ (শুধু তুমি জানো)</p>
+    <input id="ownerPass" type="password" placeholder="Enter Password">
+    <button class="primary-btn" onclick="unlockOwner()">UNLOCK PANEL</button>
+    <p id="err" class="error hidden">ভুল Password!</p>
+    <button class="close-btn" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<!-- Owner Panel -->
+<div id="ownerPanel" class="owner-panel hidden">
+  <div class="panel-top">
+    <h1>OWNER PANEL</h1>
+    <button onclick="document.getElementById('ownerPanel').classList.add('hidden')" class="owner-btn">Exit</button>
+  </div>
+  <div id="adminList" class="admin-list"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
